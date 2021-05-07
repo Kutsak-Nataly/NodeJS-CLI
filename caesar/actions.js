@@ -1,34 +1,27 @@
 const errors = require('./errors');
-const abc = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-console.log(errors.required, '1234');
+const consoleStd = require('./consolestd');
 
-function decode(letter, shift) {
-    const position = abc.indexOf(letter) - shift;
-    return (abc.indexOf(letter) === -1) ? letter : abc.substr(position, 1);
-}
-
-function encode(letter, shift) {
-    const position = abc.indexOf(letter) + shift;
-    return (abc.indexOf(letter) === -1) ? letter : abc.substr(position, 1);
-}
-
-// function temp(letter, shift) {
-//     const ALLOWED_ACTIONS = ['encode', 'decode'];
-//     if (!ALLOWED_ACTIONS.includes(action)) return `Action "${action}" is not allowed. Use one of these instead: ${ALLOWED_ACTIONS.reduce((_, action) => `${_} ${action}`, '')}`;
-//     if (!shift) {
-//         return 'No shift value accepted';
-//     } else {
-//         if (!isInteger(shift)) {
-//             return 'Shift must be integer number';
-//         }
-//     }
-//
-// }
+const ALLOWED_ACTIONS = ['encode', 'decode'];
 
 function doCli(options) {
+    if (!options.shift || !options.action || !ALLOWED_ACTIONS.includes(options.action) || !Number.isInteger(options.shift) || (options.shift === 0)) {
+        if (!options.shift) process.stderr.write(errors.required + '\n');
+        if (!options.action) process.stderr.write('Configuration is missing \'action\' parameter!\n');
+        if (!Number.isInteger(options.shift)) process.stderr.write('Configuration is missing \'isInteger\' parameter!\n');
+        if (options.shift === 0) process.stderr.write(errors.incorrect + '\n');
+        process.exit(1);
+    } else {
+        options.shift = options.shift % 26;
+        if (!options.input && !options.output) {
+            consoleStd.consoleInOut(options);
+        } else if (!options.input) {
+            consoleStd.consoleIn(options);
+        } else if (!options.output) {
+            consoleStd.consoleOut(options);
+        } else {
 
-
-    console.log(options);
+        }
+    }
 
 }
 

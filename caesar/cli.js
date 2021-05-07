@@ -1,4 +1,3 @@
-// const fs = require('fs');
 const {program} = require('commander');
 const actions = require('./actions');
 
@@ -14,19 +13,8 @@ program
     .parse();
 
 const options = program.opts();
+
 actions.doCli(options);
-
-
-//
-// if (options.shift) {
-//     console.log();
-// }
-// else {
-//     console.log('shift - Обязательный параметр');
-// }
-// if (options.action) console.log(options.action);
-// if (options.input) console.log(options.input);
-// if (options.output) console.log(options.output);
 
 
 
