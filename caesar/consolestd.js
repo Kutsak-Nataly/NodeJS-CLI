@@ -1,5 +1,6 @@
 const readline = require('readline');
 const caesarCode = require('./docode');
+const files = require('./files');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -8,22 +9,21 @@ const rl = readline.createInterface({
 
 function consoleIn(options) {
     rl.question('Enter data for coding:\n', (input) => {
-        caesarCode.code(input, options);
-        //запись в файл
+        const output = caesarCode.code(input, options);
+        files.fileWrite(options, output);
         consoleInOut(options);
     });
 }
 
 function consoleOut(options) {
-
+        files.fileRead(options);
 }
 
 function consoleInOut(options) {
     rl.question('Enter data for coding:\n', (input) => {
-        caesarCode.code(input, options);
-        console.log('Result:\n' + caesarCode.code(input, options));
+        const output = caesarCode.code(input, options);
+        console.log('Result:\n' + output);
         consoleInOut(options);
-        // rl.close();
     });
 }
 
