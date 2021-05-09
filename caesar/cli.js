@@ -4,10 +4,10 @@ const actions = require('./actions');
 program
     .version('0.0.1')
     .description('Encode and decode a text by Caesar cipher')
-    .option('-s, --shift <number>', 'shift in the alphabet, integer/-integer, required', Number)
+    .requiredOption('-s, --shift <number>', 'shift in the alphabet, integer/-integer, required', Number)
     .option('-i, --input <value>', 'an input file', String)
     .option('-o, --output <value>', 'an output file', String)
-    .option('-a, --action <value>', 'encode or decode, required', String)
+    .requiredOption('-a, --action <value>', 'encode or decode, required', String)
     .action(() => {
     })
     .parse();

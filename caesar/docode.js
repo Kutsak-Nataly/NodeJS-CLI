@@ -15,10 +15,10 @@ function decode(input, shift) {
         if (!ABC.includes(input[i]) && !abc.includes(input[i])) {
             answer += input[i];
         } else if (abc.includes(input[i])) {
-            let position = abc.indexOf(input[i]) - shift;
+            let position = abc.lastIndexOf(input[i]) - shift;
             answer += abc.substr(position, 1);
         } else {
-            let position = ABC.indexOf(input[i]) - shift;
+            let position = ABC.lastIndexOf(input[i]) - shift;
             answer += ABC.substr(position, 1);
         }
     }
