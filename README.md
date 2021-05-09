@@ -1,6 +1,8 @@
 # nodejs-Ceasar
 CLI tool that will encode and decode a text by Caesar cipher. For encoding/decoding use only the English alphabet, all other characters should be kept untouched.
 It uses <strong>streams</strong> to codeing data.
+install <strong>commander js</strong>
+npm install commander
 To exit the mode console input press [Cntr+C]
 ***
 ## Installation
