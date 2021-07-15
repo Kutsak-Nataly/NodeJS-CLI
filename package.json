@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "",
-    "start": "node index"
+    "start": "node caesar/cli -a encode -s 7 -i \"./input.txt\" -o \"./output.txt\""
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,7 @@
     "express": "^4.17.1"
   },
   "engines": {
-    "node": "14",
+    "node": "^14.16.1",
     "npm": "^14.16.1"
   }
 }
