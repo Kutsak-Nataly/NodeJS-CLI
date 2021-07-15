@@ -6,7 +6,7 @@ function doCli(options) {
     if (!options.shift || !options.action || !ALLOWED_ACTIONS.includes(options.action) || !Number.isInteger(options.shift) || (options.shift === 0)) {
         if (!ALLOWED_ACTIONS.includes(options.action)) process.stderr.end(`error: action should be ${ALLOWED_ACTIONS.join(' or ')}\n`);
         if (!Number.isInteger(options.shift)) process.stderr.end('error: configuration is missing \'isInteger\' parameter!\n');
-        if (options.shift === 0) process.stderr.end('error: When set --shift to value 0, no offset (encoding) will occur. Set the correct parameters \n');
+        if (options.shift === 0) process.stderr.end('error: When set --shift (-s) to value 0, no offset (encoding) will occur. Set the correct parameters \n');
         process.exit(9);
     } else {
         options.shift = options.shift % 26;
