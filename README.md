@@ -6,9 +6,9 @@ npm install commander
 To exit the mode console input press [Cntr+C]
 ***
 ## Installation
-Place the folder folder at the root of your project. Recommended parameters of the project (environment) can be found in the file <strong>package.json</strong> of this repository.
+Place the folder at the root of your project. Recommended parameters of the project (environment) can be found in the file <strong>package.json</strong> of this repository.
 ## Start
-```javascript
+```
 node caesar/cli
 ```
 ## Parameters and arguments
@@ -24,15 +24,15 @@ node caesar/cli
 > <p>console -> file</p>
 > 
 Get help 
-```js
+```
 node caesar/cli --help
 ```
 Check version app
-```js
+```
 node caesar/cli --version
 ```
 ### Command example
-```js
+```
 node caesar/cli -a encode -s 7 -i "./input.txt" -o "./output.txt"
 ```
 
